@@ -21,7 +21,7 @@ app.get('/json',(req,res) => {
 });
 
 function loggingMiddleware(req,res,next) {
-    console.log(req.method + ' ' + req.path + ' ' + req.ip + ' ');
+    console.log(req.method + ' ' + req.path + ' - ' + req.ip);
     next();
 }
 
