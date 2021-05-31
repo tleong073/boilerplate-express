@@ -33,6 +33,11 @@ app.get('/:word/echo', (req,res) => {
         echo: req.params.word
     });
 });
+app.route('/name').get((req,res) => {
+    res.json({
+        name: req.query.firstname + ' ' + req.query.lastname
+    });
+});
 
 function loggingMiddleware(req,res,next) {
     console.log(req.method + ' ' + req.path + ' - ' + req.ip);
