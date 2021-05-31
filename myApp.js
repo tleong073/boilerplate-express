@@ -1,10 +1,11 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
-console.log("Hello World");
-
+var bp = bodyParser.urlencoded({extended:false});
 
 app.use('/public',express.static(__dirname +'/public/'));
 app.use(loggingMiddleware);
+app.use(bp);
 
 app.get('/',(req,res) => {
     res.sendFile(__dirname + '/views/index.html');
