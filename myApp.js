@@ -28,6 +28,11 @@ app.get('/now', (req,res,next) => {
         time: req.time
     });
 });
+app.get('/:word/echo', (req,res) => {
+    res.json({
+        echo: req.params.word
+    });
+});
 
 function loggingMiddleware(req,res,next) {
     console.log(req.method + ' ' + req.path + ' - ' + req.ip);
